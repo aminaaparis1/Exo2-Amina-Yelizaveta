@@ -1,0 +1,14 @@
+.accueil-container {
+  display: flex;
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;      /* centre verticalement */
+  height: 100vh;            /* occupe toute la hauteur de l’écran */
+  background-color: #fafafa;
+}
+
+.accueil-container img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

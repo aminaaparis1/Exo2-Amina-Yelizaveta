@@ -1,0 +1,53 @@
+/* styles.css ou app.component.css */
+
+/* Header / Navbar */
+header {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar a.active {
+  border-bottom: 2px solid #fff;
+}
+
+/* Contenu principal */
+.content {
+  padding: 2rem;
+  min-height: calc(100vh - 120px); /* Ajuste selon la taille du header et footer */
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,1 +1,29 @@
-<p>contact works!</p>
+<div class="container mt-5 d-flex justify-content-center">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="card p-4 shadow-sm" style="max-width: 500px; width: 100%;">
+    <h2 class="text-center mb-4">Formulaire de Contact</h2>
+
+    <label for="prenom" class="form-label">Prénom</label>
+    <input id="prenom" type="text" class="form-control mb-3" formControlName="prenom">
+
+    <label for="nom" class="form-label">Nom</label>
+    <input id="nom" type="text" class="form-control mb-3" formControlName="nom">
+
+    <label for="age" class="form-label">Âge</label>
+    <input id="age" type="number" class="form-control mb-3" formControlName="age">
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" formControlName="hideEmail" id="hideEmail">
+      <label class="form-check-label" for="hideEmail">Hide Email</label>
+    </div>
+
+    <ng-container *ngIf="!contactForm.get('hideEmail')?.value">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" type="email" class="form-control mb-3" formControlName="email">
+    </ng-container>
+
+    <label for="commentaire" class="form-label">Commentaire</label>
+    <textarea id="commentaire" class="form-control mb-3" formControlName="commentaire" rows="3"></textarea>
+
+    <button type="submit" class="btn btn-primary w-100" [disabled]="contactForm.invalid">Envoyer</button>
+  </form>
+</div>

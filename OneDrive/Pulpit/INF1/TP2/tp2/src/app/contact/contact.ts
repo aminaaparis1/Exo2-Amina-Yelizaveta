@@ -1,46 +1,62 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule, JsonPipe } from '@angular/common';
+import { Router } from '@angular/router';
+import { ContactDataService } from '../services/contact-data';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.html',
-  imports:[ReactiveFormsModule, CommonModule],
-  styleUrls: ['./contact.scss']
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    JsonPipe
+  ],
+  styleUrls: ['./contact.scss'],
+  standalone: true
 })
 export class Contact {
-  contactForm: FormGroup;
+  public formulaireContact: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactDataService,
+    private router: Router
+  ) {
+    // création du formulaire
+    this.formulaireContact = this.fb.group({
       prenom: ['', Validators.required],
       nom: ['', Validators.required],
       age: [''],
-      hideEmail: [false],
+      cacherEmail: [false],
       email: ['', [Validators.required, Validators.email]],
       commentaire: ['', Validators.required]
     });
-
-    this.contactForm.get('hideEmail')?.valueChanges.subscribe(val => {
-      const emailCtrl = this.contactForm.get('email');
-      if (val) {
-        emailCtrl?.clearValidators();
-        emailCtrl?.setValue('');
-      } else {
-        emailCtrl?.setValidators([Validators.required, Validators.email]);
-      }
-      emailCtrl?.updateValueAndValidity();
-    });
   }
 
-  onSubmit() {
-    if (this.contactForm.valid) {
-      alert('Le formulaire est valide');
-      //apres ici ajouter la redirection vers accueil
+  public basculerEmail() {
+    const cacher = this.formulaireContact.get('cacherEmail')?.value;
+    const champEmail = this.formulaireContact.get('email');
+
+    if (cacher) {
+      champEmail?.clearValidators();
+      champEmail?.setValue('');
+    } else {
+      champEmail?.setValidators([Validators.required, Validators.email]);
+    }
+    champEmail?.updateValueAndValidity();
+  }
+
+  public envoyer() {
+    if (this.formulaireContact.valid) {
+      // sauvegarde dans le service
+      this.contactService.setContact(this.formulaireContact.value);
+
+      alert("Le formulaire est valide !");
+
+      // redirection vers la page gestion
+      this.router.navigate(['/accueil']);
     }
   }
-
-
 }

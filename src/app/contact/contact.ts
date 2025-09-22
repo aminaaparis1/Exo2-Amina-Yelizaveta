@@ -7,12 +7,11 @@ import { ContactDataService } from '../services/contact-data';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.html',
-  styleUrls: ['./contact.scss'], // peut rester minimal
+  styleUrls: ['./contact.scss'],
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, CommonModule, JsonPipe, NgClass]
 })
 export class Contact {
-  // Inputs simples pour le style (peu nombreux)
   @Input() containerClass: string = 'srb-container';
   @Input() formClass: string = 'srb-form card-flat';
   @Input() titleClass: string = 'title-blue text-center my-4';
@@ -51,10 +50,10 @@ export class Contact {
 
   public envoyer() {
     if (this.formulaireContact.valid) {
-      // ✅ on conserve la sauvegarde dans le service (pour Gestion)
+
       this.contactService.setContact(this.formulaireContact.value);
-      alert('Le formulaire est valide !'); // ✅ alerte demandée
-      this.router.navigate(['/accueil']);  // ✅ redirection vers l’accueil
+      alert('Le formulaire est valide !'); 
+      this.router.navigate(['/accueil']);  
     }
   }
 }

@@ -1,32 +1,28 @@
-/* Police sobre */
+
 * { font-family: Arial, Helvetica, sans-serif; }
 
-/* Couleurs Sorbonne (sobre) */
 $bleu-sorbonne: #002147;
 $or-sorbonne:   #B9975B;
 
-/* Liste */
 .film-list { list-style: none; padding: 0; }
 
 .film-link {
   color: $bleu-sorbonne;
   font-weight: 600;
-  text-decoration: none;           /* pas de soulignage */
+  text-decoration: none;    
   transition: color .2s ease-in-out;
 }
 .film-link:hover {
   color: $or-sorbonne;
-  text-decoration: none;           /* confirme : pas de soulignage au hover */
+  text-decoration: none;         
 }
 
-/* Détails */
 .film-details h3 { color: $bleu-sorbonne; }
 
-/* Affiches : toutes la même taille */
 .poster {
   width: 300px;
   height: 450px;
-  object-fit: cover;               /* remplit sans déformer */
+  object-fit: cover;            
   border: 2px solid $bleu-sorbonne;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,.15);

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ContactDataService } from '../services/contact-data';
 
@@ -10,13 +10,25 @@ import { ContactDataService } from '../services/contact-data';
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    CommonModule,
-    JsonPipe
+    CommonModule
   ],
   styleUrls: ['./contact.scss'],
   standalone: true
 })
 export class Contact {
+  @Input() formClass: string = 'p-3 border rounded shadow-sm';
+  @Input() labelClass: string = 'form-label';
+  @Input() inputClass: string = 'form-control mb-2';
+  @Input() textareaClass: string = 'form-control mb-3';
+  @Input() buttonClass: string = 'btn btn-primary w-100';
+  @Input() formCheckClass: string = 'form-check mb-2';
+  @Input() checkboxClass: string = 'form-check-input';
+  @Input() checkboxLabelClass: string = 'form-check-label';
+  @Input() checkboxLabel: string = 'Cacher Email';
+  @Input() titre: string = 'text-center my-4';
+
+  @Output() formSubmitted = new EventEmitter<any>();
+
   public formulaireContact: FormGroup;
 
   constructor(
@@ -24,7 +36,7 @@ export class Contact {
     private contactService: ContactDataService,
     private router: Router
   ) {
-    // création du formulaire
+    // formulaire
     this.formulaireContact = this.fb.group({
       prenom: ['', Validators.required],
       nom: ['', Validators.required],

@@ -1,30 +1,38 @@
-<h2 class="text-center my-4">Formulaire de Contact</h2>
+<h2 [ngClass]="titre">Formulaire de Contact</h2>
 
-<form [formGroup]="formulaireContact" (ngSubmit)="envoyer()" class="p-3 border rounded shadow-sm">
+<form [formGroup]="formulaireContact" (ngSubmit)="envoyer()" [ngClass]="formClass">
 
-  <label class="form-label">Prénom</label>
-  <input type="text" class="form-control mb-2" formControlName="prenom">
+  <label [ngClass]="labelClass">Prénom</label>
+  <input type="text" [ngClass]="inputClass" formControlName="prenom">
 
-  <label class="form-label">Nom</label>
-  <input type="text" class="form-control mb-2" formControlName="nom">
+  <label [ngClass]="labelClass">Nom</label>
+  <input type="text" [ngClass]="inputClass" formControlName="nom">
 
-  <label class="form-label">Âge</label>
-  <input type="number" class="form-control mb-2" formControlName="age">
+  <label [ngClass]="labelClass">Âge</label>
+  <input type="number" [ngClass]="inputClass" formControlName="age">
 
-  <div class="form-check mb-2">
-    <input type="checkbox" class="form-check-input" formControlName="cacherEmail" id="cacherEmail" (change)="basculerEmail()">
-    <label class="form-check-label" for="cacherEmail">Cacher Email</label>
+  <div [ngClass]="formCheckClass">
+    <input
+      type="checkbox"
+      [ngClass]="checkboxClass"
+      formControlName="cacherEmail"
+      id="cacherEmail"
+      (change)="basculerEmail()"
+    >
+    <label [ngClass]="checkboxLabelClass" for="cacherEmail">{{ checkboxLabel || 'Cacher Email' }}</label>
   </div>
 
-  <ng-container *ngIf="!formulaireContact.get('cacherEmail')?.value">
-    <label class="form-label">Email</label>
-    <input type="email" class="form-control mb-2" formControlName="email">
-  </ng-container>
 
-  <label class="form-label">Commentaire</label>
-  <textarea class="form-control mb-3" formControlName="commentaire" rows="3"></textarea>
+  @if (!formulaireContact.get('cacherEmail')?.value) {
+    <label [ngClass]="labelClass">Email</label>
+    <input type="email" [ngClass]="inputClass" formControlName="email">
+  }
 
-  <button type="submit" class="btn btn-primary w-100" [disabled]="formulaireContact.invalid">
+  <label [ngClass]="labelClass">Commentaire</label>
+  <textarea [ngClass]="textareaClass" formControlName="commentaire" rows="3"></textarea>
+
+  <button type="submit" [ngClass]="buttonClass" [disabled]="formulaireContact.invalid">
     Envoyer
   </button>
+
 </form>

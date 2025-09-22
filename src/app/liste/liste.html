@@ -3,7 +3,7 @@
       @for (film of films; track film.titre) {
         <li class="nav-item">
           <a href="#"
-             [ngClass]="itemClass"
+             [ngClass]="[itemClass, film.titre === selectedTitre ? 'selected-film' : '']"
              (click)="selectFilm(film.titre, film.affiche, $event)">
             {{ film.titre }}
           </a>
@@ -17,5 +17,5 @@
         <img [src]="selectedAffiche" [alt]="selectedTitre" [ngClass]="posterClass">
       </div>
     }
-  </div>
+</div>
   

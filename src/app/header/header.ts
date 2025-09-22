@@ -10,10 +10,10 @@ import { NgClass } from '@angular/common';
   styleUrl: './header.scss'
 })
 export class Header {
-  @Input() navbarClass: string = 'navbar navbar-expand sorbonne-navbar';
-  @Input() logoClass: string = 'navbar-logo';
-  @Input() titleClass: string = 'navbar-title';
-  @Input() containerClass: string = 'navbar-links d-flex gap-4';
-  @Input() linkClass: string = 'nav-link nav-link-lg text-white fw-semibold';
-  @Input() activeClass: string = 'active-link';
+  public navbarClass: string = 'navbar navbar-expand sorbonne-navbar';
+  public logoClass: string = 'navbar-logo';
+  public titleClass: string = 'navbar-title';
+  public containerClass: string = 'navbar-links d-flex gap-4';
+  public linkClass: string = 'nav-link nav-link-lg text-white fw-semibold';
+  public activeClass: string = 'active-link';
 }

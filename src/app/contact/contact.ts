@@ -1,21 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CommonModule, JsonPipe, NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-import { ContactDataService } from '../services/contact-data';
+import { ContactDataService } from '../services/contact-service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.html',
   styleUrls: ['./contact.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule, JsonPipe, NgClass]
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, NgClass]
 })
 export class Contact {
-  @Input() containerClass: string = 'srb-container';
-  @Input() formClass: string = 'srb-form card-flat';
-  @Input() titleClass: string = 'title-blue text-center my-4';
-  @Input() submitClass: string = 'btn-gold w-100';
+  public containerClass: string = 'srb-container';
+  public formClass: string = 'srb-form card-flat';
+  public titleClass: string = 'title-blue text-center my-4';
+  public labelClass: string = 'srb-label';
+  public inputClass: string = 'srb-control mb-2';
+  public textareaClass: string = 'srb-control mb-3';
+  public checkboxRowClass: string = 'd-flex align-items-center gap-2 mb-2';
+  public checkboxInputClass: string = 'srb-checkbox';
+  public checkboxLabelClass: string = 'srb-label m-0';
+  public submitClass: string = 'btn-gold w-100';
+
 
   public formulaireContact: FormGroup;
 

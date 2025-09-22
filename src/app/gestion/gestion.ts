@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactDataService } from '../services/contact-data';
+import { ContactDataService } from '../services/contact-service';
+import { Contact } from '../interfaces/contact';
 
 @Component({
   selector: 'app-gestion',
@@ -10,13 +11,13 @@ import { ContactDataService } from '../services/contact-data';
   standalone: true
 })
 export class Gestion {
-  public dernierContact: any = null;
+  public dernierContact: Contact | null = null;
 
-  @Input() titleClass: string = 'text-center my-4';
-  @Input() notFoundTextClass: string = 'text-center';
-  @Input() notFoundContainerClass: string = 'd-flex justify-content-center mt-3';
-  @Input() notFoundImgClass: string = 'img-fluid w-25';
-  @Input() contactCardClass: string = 'srb-contact-card';
+  public titleClass: string = 'text-center my-4';
+  public notFoundTextClass: string = 'text-center';
+  public notFoundContainerClass: string = 'd-flex justify-content-center mt-3';
+  public notFoundImgClass: string = 'img-fluid w-25';
+  public contactCardClass: string = 'srb-contact-card';
 
 
   constructor(private contactService: ContactDataService) {

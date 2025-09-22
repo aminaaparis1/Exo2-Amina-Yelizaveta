@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter} from '@angular/core';
 import { NgClass } from '@angular/common';
+import { Film } from '../interfaces/film';
 
-type Film = { titre: string; affiche: string };
+
 
 @Component({
   selector: 'app-liste',
@@ -11,12 +12,11 @@ type Film = { titre: string; affiche: string };
   imports: [NgClass],
 })
 export class Liste {
-  @Input() listClass: string = 'nav justify-content-center gap-4 pt-3 film-list';
-  @Input() itemClass: string = 'nav-link film-link';
-  @Input() detailsClass: string = 'text-center mt-4 film-details';
-  @Input() posterClass: string = 'img-fluid poster';
+  public listClass: string = 'nav justify-content-center gap-4 pt-3 film-list';
+  public itemClass: string = 'nav-link film-link';
+  public detailsClass: string = 'text-center mt-4 film-details';
+  public posterClass: string = 'img-fluid poster';
 
-  @Output() filmSelected = new EventEmitter<string>();
 
   films: Film[] = [
     { titre: 'Batman',         affiche: 'assets/films/batman.jpeg' },
@@ -33,6 +33,5 @@ export class Liste {
     event?.preventDefault(); 
     this.selectedTitre = titre;
     this.selectedAffiche = affiche;
-    this.filmSelected.emit(titre); 
   }
 }

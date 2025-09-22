@@ -27,3 +27,10 @@ $or-sorbonne:   #B9975B;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
+
+/* Film sélectionné en jaune */
+.selected-film {
+    color: #B9975B;      /* doré Sorbonne */
+    font-weight: bold;
+  }
+  

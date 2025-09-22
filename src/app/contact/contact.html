@@ -5,27 +5,27 @@
         (ngSubmit)="envoyer()"
         [ngClass]="formClass">
 
-    <label class="srb-label">Prénom *</label>
-    <input type="text" class="srb-control mb-2" formControlName="prenom">
+    <label [ngClass]="labelClass">Prénom *</label>
+    <input type="text" [ngClass]="inputClass" formControlName="prenom">
 
-    <label class="srb-label">Nom *</label>
-    <input type="text" class="srb-control mb-2" formControlName="nom">
+    <label [ngClass]="labelClass">Nom *</label>
+    <input type="text" [ngClass]="inputClass" formControlName="nom">
 
-    <label class="srb-label">Âge</label>
-    <input type="number" class="srb-control mb-2" formControlName="age">
+    <label [ngClass]="labelClass">Âge</label>
+    <input type="number" [ngClass]="inputClass" formControlName="age">
 
-    <div class="d-flex align-items-center gap-2 mb-2">
-      <input id="cacherEmail" type="checkbox" class="srb-checkbox" formControlName="cacherEmail" (change)="basculerEmail()">
-      <label for="cacherEmail" class="srb-label m-0">Cacher Email</label>
+    <div [ngClass]="checkboxRowClass">
+      <input id="cacherEmail" type="checkbox" [ngClass]="checkboxInputClass" formControlName="cacherEmail" (change)="basculerEmail()">
+      <label for="cacherEmail" [ngClass]="checkboxLabelClass">Cacher Email</label>
     </div>
 
     @if (!formulaireContact.get('cacherEmail')?.value) {
-      <label class="srb-label">Email *</label>
-      <input type="email" class="srb-control mb-2" formControlName="email" placeholder="ex: nom@domaine.com">
+      <label [ngClass]="labelClass">Email *</label>
+      <input type="email" [ngClass]="inputClass" formControlName="email" placeholder="ex: nom@domaine.com">
     }
 
-    <label class="srb-label">Commentaire *</label>
-    <textarea rows="3" class="srb-control mb-3" formControlName="commentaire"></textarea>
+    <label [ngClass]="labelClass">Commentaire *</label>
+    <textarea rows="3" [ngClass]="textareaClass" formControlName="commentaire"></textarea>
 
     <button type="submit" [ngClass]="submitClass" [disabled]="formulaireContact.invalid">
       Envoyer

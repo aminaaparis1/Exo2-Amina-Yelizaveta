@@ -1,0 +1,29 @@
+/* Fond noir + texte blanc */
+.sorbonne-footer {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+  
+  /* Texte du footer */
+  .footer-text {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+  }
+  
+  /* Bouton contact doré */
+  .btn-contact {
+    background-color: #C99700 !important; // doré Sorbonne
+    color: #FFFFFF !important;           // texte blanc
+    border: none !important;             // pas de bordure
+    border-radius: 0 !important;         // pas d’arrondi
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #a67f00 !important; // doré foncé au survol
+      color: #FFFFFF !important;
+    }
+  }
+  

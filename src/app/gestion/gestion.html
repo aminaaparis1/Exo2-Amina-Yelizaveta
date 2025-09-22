@@ -1,0 +1,16 @@
+<h2 class="text-center my-4">Page Gestion</h2>
+
+@if (dernierContact) {
+  <p><strong>Prénom :</strong> {{ dernierContact.prenom }}</p>
+  <p><strong>Nom :</strong> {{ dernierContact.nom }}</p>
+  <p><strong>Âge :</strong> {{ dernierContact.age }}</p>
+  @if (!dernierContact.cacherEmail) {
+    <p><strong>Email :</strong> {{ dernierContact.email }}</p>
+  }
+  <p><strong>Commentaire :</strong> {{ dernierContact.commentaire }}</p>
+} @else {
+  <h4 class="text-center text-danger">404 - Aucun formulaire trouvé</h4>
+  <div class="d-flex justify-content-center mt-3">
+    <img src="assets/404.png" alt="404 not found" class="img-fluid" style="max-width:400px; height:auto;">
+  </div>
+}

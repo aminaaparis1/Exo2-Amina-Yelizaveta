@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!-- Liste de liens (centrée en haut) -->
+    <ul [ngClass]="listClass">
+      @for (film of films; track film.titre) {
+        <li class="nav-item">
+          <a href="#"
+             [ngClass]="itemClass"
+             (click)="selectFilm(film.titre, film.affiche, $event)">
+            {{ film.titre }}
+          </a>
+        </li>
+      }
+    </ul>
+  
+    <!-- Détails sous la liste -->
+    @if (selectedTitre) {
+      <div [ngClass]="detailsClass">
+        <h3 class="mb-3">{{ selectedTitre }}</h3>
+        <img [src]="selectedAffiche" [alt]="selectedTitre" [ngClass]="posterClass">
+      </div>
+    }
+  </div>
+  

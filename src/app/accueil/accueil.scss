@@ -1,0 +1,13 @@
+.accueil-container {
+    display: flex;
+    justify-content: center;  /* centre horizontalement */
+    align-items: center;      /* centre verticalement */
+    height: 90vh;            /* prend toute la hauteur de la fenêtre */
+    background-color: #fafafa;
+  }
+  
+  .accueil-container img {
+    max-width: 50%;
+    max-height: 50%;
+  }
+  

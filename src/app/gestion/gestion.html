@@ -1,14 +1,17 @@
 <h2 [ngClass]="titleClass">Page Gestion</h2>
 
 @if (dernierContact) {
-  <p><strong>Prénom :</strong> {{ dernierContact.prenom }}</p>
-  <p><strong>Nom :</strong> {{ dernierContact.nom }}</p>
-  <p><strong>Âge :</strong> {{ dernierContact.age }}</p>
-  @if (!dernierContact.cacherEmail) {
-    <p><strong>Email :</strong> {{ dernierContact.email }}</p>
+    <div [ngClass]="contactCardClass">
+      <p><strong>Prénom :</strong> {{ dernierContact.prenom }}</p>
+      <p><strong>Nom :</strong> {{ dernierContact.nom }}</p>
+      <p><strong>Âge :</strong> {{ dernierContact.age }}</p>
+      @if (!dernierContact.cacherEmail) {
+        <p><strong>Email :</strong> {{ dernierContact.email }}</p>
+      }
+      <p><strong>Commentaire :</strong> {{ dernierContact.commentaire }}</p>
+    </div>
   }
-  <p><strong>Commentaire :</strong> {{ dernierContact.commentaire }}</p>
-} @else {
+   @else {
   <h4 [ngClass]="notFoundTextClass">404 - Aucun formulaire trouvé</h4>
   <div [ngClass]="notFoundContainerClass">
     <img src="assets/404.png" alt="404 not found" [ngClass]="notFoundImgClass">

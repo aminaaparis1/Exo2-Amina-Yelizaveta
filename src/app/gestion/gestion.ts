@@ -16,6 +16,8 @@ export class Gestion {
   @Input() notFoundTextClass: string = 'text-center';
   @Input() notFoundContainerClass: string = 'd-flex justify-content-center mt-3';
   @Input() notFoundImgClass: string = 'img-fluid w-25';
+  @Input() contactCardClass: string = 'srb-contact-card';
+
 
   constructor(private contactService: ContactDataService) {
     this.dernierContact = this.contactService.getContact();

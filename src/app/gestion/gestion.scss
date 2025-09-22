@@ -1,0 +1,28 @@
+$srb-blue: #002147;
+$srb-gold: #B9975B;
+$srb-grey: #f5f6f7;
+
+.srb-contact-card {
+  max-width: 500px;
+  margin: 0 auto;                
+  padding: 20px;
+  background: $srb-grey;         
+  border: 1px solid $srb-blue;   
+  border-radius: 0;               
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+  p {
+    margin: 8px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  strong {
+    color: $srb-blue;     
+    font-weight: 600;
+  }
+
+  p:last-child strong {
+    color: $srb-gold;             
+  }
+}

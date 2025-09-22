@@ -1,6 +1,4 @@
 <div class="container">
-
-    <!-- Liste de liens (centrée en haut) -->
     <ul [ngClass]="listClass">
       @for (film of films; track film.titre) {
         <li class="nav-item">
@@ -13,7 +11,6 @@
       }
     </ul>
   
-    <!-- Détails sous la liste -->
     @if (selectedTitre) {
       <div [ngClass]="detailsClass">
         <h3 class="mb-3">{{ selectedTitre }}</h3>

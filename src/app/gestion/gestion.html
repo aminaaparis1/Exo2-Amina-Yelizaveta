@@ -1,4 +1,4 @@
-<h2 class="text-center my-4">Page Gestion</h2>
+<h2 [ngClass]="titleClass">Page Gestion</h2>
 
 @if (dernierContact) {
   <p><strong>Prénom :</strong> {{ dernierContact.prenom }}</p>
@@ -9,8 +9,8 @@
   }
   <p><strong>Commentaire :</strong> {{ dernierContact.commentaire }}</p>
 } @else {
-  <h4 class="text-center text-danger">404 - Aucun formulaire trouvé</h4>
-  <div class="d-flex justify-content-center mt-3">
-    <img src="assets/404.png" alt="404 not found" class="img-fluid" style="max-width:400px; height:auto;">
+  <h4 [ngClass]="notFoundTextClass">404 - Aucun formulaire trouvé</h4>
+  <div [ngClass]="notFoundContainerClass">
+    <img src="assets/404.png" alt="404 not found" [ngClass]="notFoundImgClass">
   </div>
 }
